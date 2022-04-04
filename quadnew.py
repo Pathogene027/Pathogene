@@ -15,15 +15,17 @@ while True:
         numerator1 = -second_number + disSqrt
         numerator2 = -second_number - disSqrt
         denominator = 2 * first_number
-        global eq1
+        global eq1  # making the eq1 variable accessible outside the try function
         eq1 = (-second_number + disSqrt)/twoA
-        global eq2
+        global eq2  # making the eq1 variable accessible outside the try function
         eq2 = (-second_number - disSqrt) / twoA
 
     # checking if the function gets a zero division error
     except ZeroDivisionError:
         print('The denominator is 0 hence')
         print('The roots of the equation = 0 , 0')
+
+    # checking if the function gets a value error
     except ValueError:
         disSqrt = f'√ {dis}'
         if dis < 0:
@@ -53,7 +55,7 @@ while True:
     option = input('Enter your option: ').lower()
     if option in ['1', 'yes', 'y']:
         print('Lets do it again')
-        continue
+        continue  # allows the  operation to leave the if loop and move straight to the while loop again
     elif option in ['2', 'no', 'n']:
         print('Hello hope you come back again another time!')
-        break
+        break   # stops the operation from moving to the wile loop is the elif is true
