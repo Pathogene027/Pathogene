@@ -26,52 +26,64 @@ titleline = 5 * '*'
 impress(title, delay=0.2)
 impress(titleline, delay=0.1)
 
-# creating essential variables
-count = 0
+
 
 addressing = '''Welcome to the guessing game,
 the roulette has been spun'''
 comple = ['Heyyo! You are a magician.', 'Genius well done', 'Christ he just made a miracle']
 check = True
-
+check1 = True
 while check:
     print('\n')
+    name = input('Enter your name: ').capitalize()
+    welc = f'Hello {name}'
+    impress(welc, delay=0.1)
+
+    print('\n')
     impress(addressing, delay=0.1)  # running the impress function with the addressing variable
+
     # loop for running program
-    while count < 3:
+    while check1:
+        check2 = True
+        while check2:
+            # creating essential variables
+            count = 0
+            container = random.randint(2, 9)  # the randomint with interval
+            while count < 3:
+                # essential variables for the loop
+                countsolve = 2 - count
+                complet = [f"Merhn guessing is hard!! You've got {countsolve} more chances",
+                           f'Quit dear one, QUIT 😂😂😂 {countsolve} more chances!',
+                           f'Doing great {countsolve} more chances!']
 
-        # essential variables for the loop
-        countsolve = 2 - count
-        complet = [f"Merhn guessing is hard!! You've got {countsolve} more chances",
-                   f'Quit dear one, QUIT 😂😂😂 {countsolve} more chances!', f'Doing great {countsolve} more chances!']
-
-        container = random.randint(1, 10)  # the randomint with interval
-
-        print('\n', container)
-        userinput = int(input('Guess a number: '))  # take user input and convert to integer for comparison
-
-        # comparing user input to the randint variable
-        if userinput == container:
-            complim(comple)
+                print('\nSecret number ', container)
+                userinput = int(input('Guess a number between 1 and 10: '))  # take user input and convert to integer for comparison
+                # comparing user input to the randint variable
+                if userinput == container:
+                    complim(comple)
+                    break
+                else:
+                    # hints
+                    if userinput < container:
+                        print('Guess is less than the secret number ')
+                    elif userinput > container:
+                        print('Guess is more than secret number')
+                    complim(complet)
+                    count += 1
             break
+        # option to quit or continue
+        print('\nContinue?\nChoose Yes(y) or No(n)')
+        opt = input('Make a choice!')
 
+        if opt.lower() in ['yes', 'y']:
+            pass
+
+        elif opt.lower() in ['no', 'n']:
+            sab = 'See you again Bruv!'
+            qu = 'Quiting...'
+            impress(sab, delay=0.1)
+            print('\n')
+            impress(qu, delay=0.1)
+            sys.exit()
         else:
-            count += 1
-            complim(complet)
-
-    # option to quit or continue
-    print('\nContinue?\nChoose Yes(y) or No(n)')
-    opt = input('Make a choice!')
-
-    if opt.lower() in ['yes', 'y']:
-        continue
-
-    elif opt.lower() in ['no', 'n']:
-        sab = 'See you again Bruv!'
-        qu = 'Quiting...'
-        impress(sab, delay=0.1)
-        print('\n')
-        impress(qu, delay=0.1)
-        sys.exit()
-    else:
-        pass
+            pass
