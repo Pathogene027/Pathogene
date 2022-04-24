@@ -56,8 +56,7 @@ while check:
                            f'Quit dear one, QUIT 😂😂😂 {countsolve} more chances!',
                            f'Doing great {countsolve} more chances!']
 
-                print('\nSecret number ', container)
-                userinput = int(input('Guess a number between 1 and 10: '))  # take user input and convert to integer for comparison
+                userinput = int(input('\nGuess a number between 1 and 10: '))  # take user input and convert to integer for comparison
                 # comparing user input to the randint variable
                 if userinput == container:
                     complim(comple)
